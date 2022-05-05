@@ -5,17 +5,16 @@ class UserService {
 
         const dadosValores = Object.values(dados)
         const dadosParametros = Object.keys(dados)
-        let i = 0
-        let erro = ""
-        while(i< dadosValores.length){
+        // const {whatsapp} = dados
+        // const {email_sms} = dados
+        
+        let erro = "";
+        for(let i = 0;i< dadosValores.length;i++){
             if(!dadosValores[i]){
-                if(dadosValores[i] !== false && dadosValores[i] !== false ){
-                    erro = "O campo " +dadosParametros[i]+" está vazio <br>"
-                    break;
-                }
-                
+                    if(dadosParametros[i] !== "whatsapp" && dadosParametros[i] !== "email_sms"){
+                        erro += "O campo " +dadosParametros[i]+" está vazio <br>";
+                    }
             }
-            i++
         }
         return(erro)
     }
@@ -44,10 +43,28 @@ class UserService {
 
     verificaNumber(dados){
         let erro = ""
-        if( isNaN(dados.number)){
+        const {number} = dados
+        if( isNaN(number)){
          erro = "Numero Invalido: Apenas Numeros<br>"
         }
         return (erro)
+    }
+
+    verificaMock(nulo, email, data, number, dados, mock){
+        if(nulo == "" && email == "" && data == "" && number == "" ){
+
+            let mockAntigo = [...mock]
+            mock.push(dados)
+            if(mockAntigo === mock){
+                //console.log(mockAntigo)
+                return("erro")
+            }else{
+                // console.log(mockAntigo)
+                return("ok")
+            }
+        }else{
+            return(nulo+email+data+number)
+        }
     }
 }
 

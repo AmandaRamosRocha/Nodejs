@@ -13,13 +13,10 @@ class UserController {
         let email = UserService.verificaEmail(dados)
         let data = UserService.verificaData(dados)
         let number = UserService.verificaNumber(dados)
-        if(nulo == "" && email == "" && data == "" && number == "" ){
-            UserMock.User.push(dados)
-            console.log(UserMock.User)
-            res.send("ok")
-        }else{
-            res.send(nulo+email+data+number)
-        }
+        let adcionaMock = UserService.verificaMock(nulo, email, data, number, dados, UserMock.User)
+
+        // console.log(UserMock.User)
+        res.send(adcionaMock);
     }
 }
 module.exports = new UserController();
