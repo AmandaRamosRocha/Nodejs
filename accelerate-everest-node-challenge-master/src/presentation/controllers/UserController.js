@@ -15,7 +15,7 @@ class UserController {
         let number = UserService.verificaNumber(dados)
         let adcionaMock = UserService.verificaMock(nulo, email, data, number, dados, UserMock.User)
 
-        // console.log(UserMock.User)
+        console.log(UserMock.User)
         res.send(adcionaMock);
     }
 }

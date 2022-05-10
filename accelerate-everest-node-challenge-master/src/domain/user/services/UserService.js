@@ -7,9 +7,11 @@ class UserService {
         const dadosParametros = Object.keys(dados)
         // const {whatsapp} = dados
         // const {email_sms} = dados
+
+        // console.log(dadosParametros)
         
         let erro = "";
-        for(let i = 0;i< dadosValores.length;i++){
+        for(let i in dadosValores){
             if(!dadosValores[i]){
                     if(dadosParametros[i] !== "whatsapp" && dadosParametros[i] !== "email_sms"){
                         erro += "O campo " +dadosParametros[i]+" está vazio <br>";
@@ -20,10 +22,8 @@ class UserService {
     }
     verificaEmail(dados){
 
-        let erro;
-        if(dados.email == dados.email_confirmation){
-            erro = ""
-        }else{
+        let erro = "";
+        if(dados.email !== dados.email_confirmation){
             erro = "Emails não correspondem <br>"
         }
         return(erro)
@@ -56,7 +56,7 @@ class UserService {
             let mockAntigo = [...mock]
             mock.push(dados)
             if(mockAntigo === mock){
-                //console.log(mockAntigo)
+                // console.log(mockAntigo)
                 return("erro")
             }else{
                 // console.log(mockAntigo)
