@@ -55,13 +55,14 @@ class UserService {
 
             let mockAntigo = [...mock]
             mock.push(dados)
-            if(mockAntigo === mock){
-                // console.log(mockAntigo)
-                return("erro")
-            }else{
-                // console.log(mockAntigo)
-                return("ok")
-            }
+            return("ok")
+            // if(mockAntigo === mock){
+            //     // console.log(mockAntigo)
+            //     return("erro")
+            // }else{
+            //     // console.log(mockAntigo)
+            //     return("ok")
+            // }
         }else{
             return(nulo+email+data+number)
         }
